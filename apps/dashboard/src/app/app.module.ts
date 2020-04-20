@@ -1,26 +1,16 @@
-import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NxModule } from '@nrwl/angular';
-import { MaterialModule } from '@workshop/material';
-import { UiLoginModule } from '@workshop/ui-login';
+import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { RouterModule } from '@angular/router';
+import { MaterialModule } from '@workshop/material'
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    NxModule.forRoot(),
-    BrowserAnimationsModule,
-    FormsModule,
-    HttpClientModule,
-    MaterialModule,
-    UiLoginModule,
-    AppRoutingModule
+    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

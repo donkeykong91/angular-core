@@ -2,28 +2,31 @@
   "npmScope": "workshop",
   "implicitDependencies": {
     "angular.json": "*",
-    "package.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     "tsconfig.json": "*",
     "tslint.json": "*",
     "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
   },
   "projects": {
     "dashboard": {
       "tags": []
     },
     "dashboard-e2e": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": ["dashboard"]
     },
     "material": {
-      "tags": []
-    },
-    "core-data": {
-      "tags": []
-    },
-    "ui-login": {
-      "tags": []
-    },
-    "ui-toolbar": {
       "tags": []
     }
   }
