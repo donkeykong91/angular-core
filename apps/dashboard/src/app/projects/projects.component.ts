@@ -41,4 +41,8 @@ export class ProjectsComponent implements OnInit {
     console.log('selected project: ', project);
   }
 
+  cancel() {
+    this.selectProject(null);
+  }
+
 }
