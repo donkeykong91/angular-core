@@ -8,13 +8,14 @@ import { HomeModule } from './home/home.module';
 import { ProjectsModule } from './projects/projects.module';
 import { CustomersModule } from './customers/customers.module';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    AppRoutingModule,
     MaterialModule,
     HomeModule,
     ProjectsModule,
