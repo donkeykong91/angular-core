@@ -3,7 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from '@workshop/ui-login';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', loadChildren: './home/home.module#HomeModule' },
+  { path: 'projects', loadChildren: './projects/project.module#ProjectsModule' },
+  { path: 'customers', loadChildren: './customers/customers.module#CustomersModule' },
+  { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
