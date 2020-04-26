@@ -9,6 +9,7 @@ import { ProjectsModule } from './projects/projects.module';
 import { CustomersModule } from './customers/customers.module';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from './app-routing.module';
+import { UiLoginModule } from '@workshop/ui-login';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { AppRoutingModule } from './app-routing.module';
     ProjectsModule,
     CustomersModule,
     BrowserAnimationsModule,
+    UiLoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]
