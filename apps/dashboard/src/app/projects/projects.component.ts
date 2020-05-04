@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-  projects$: Observable<Project[]>;
+  projects$;
   selectedProject: Project;
 
   constructor(private projectService: ProjectsService) { }
@@ -30,6 +30,11 @@ export class ProjectsComponent implements OnInit {
     //   .subscribe((result: any) => this.projects = result);
 
     this.projects$ = this.projectService.all()
+  }
+
+  deleteProject(project) {
+    this.projectService.delete(project.id)
+      .subscribe(result => this.getProjects());
   }
 
   cancel() {
