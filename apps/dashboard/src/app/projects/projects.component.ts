@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectsService, Project } from '@workshop/core-data'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-projects',
@@ -7,7 +8,7 @@ import { ProjectsService, Project } from '@workshop/core-data'
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-  projects: Project[];
+  projects$: Observable<Project[]>;
   selectedProject: Project;
 
   constructor(private projectService: ProjectsService) { }
@@ -22,8 +23,13 @@ export class ProjectsComponent implements OnInit {
   }
 
   getProjects() {
-    this.projectService.all()
-      .subscribe((result: any) => this.projects = result);
+    // this.projectService.all()
+    //   .pipe({
+    //     filter((result: any) => result.approved)
+    //   })
+    //   .subscribe((result: any) => this.projects = result);
+
+    this.projects$ = this.projectService.all()
   }
 
   cancel() {
