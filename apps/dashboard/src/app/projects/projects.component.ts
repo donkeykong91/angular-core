@@ -14,12 +14,24 @@ export class ProjectsComponent implements OnInit {
   constructor(private projectService: ProjectsService) { }
 
   ngOnInit(): void {
-    this.getProjects()
+    this.getProjects();
+    this.resetProject();
   }
 
   selectProject(project) {
     this.selectedProject = project;
     console.log('selected project: ', project);
+  }
+
+  resetProject() {
+    const emptyProject: Project = {
+      id: null,
+      title: '', 
+      details: '',
+      percentComplete: 0,
+      approved: false
+    }
+    this.selectProject(emptyProject);
   }
 
   getProjects() {
@@ -32,13 +44,17 @@ export class ProjectsComponent implements OnInit {
     this.projects$ = this.projectService.all()
   }
 
+  saveProject(project) {
+    console.log('SAVING PROJECT', project);
+  }
+
   deleteProject(project) {
     this.projectService.delete(project.id)
       .subscribe(result => this.getProjects());
   }
 
   cancel() {
-    this.selectProject(null);
+    this.resetProject();
   }
 
 }
