@@ -9,14 +9,16 @@
     <mat-card-content>
       <mat-list>
         <mat-list-item
-          *ngFor="let project of projects">
+          *ngFor="let project of projects"
+          (click)="selected.emit(project)">
           <h3 mat-line>
              {{ project.title }}
           </h3>
           <p mat-line>
             {{ project.details }}
           </p>
-          <button *ngIf="!readOnly" mat-icon-button>
+          <button *ngIf="!readOnly" mat-icon-button
+            (click)="deleted.emit(project); $event.stopImmediatePropagation()">
             <mat-icon>close</mat-icon>
           </button>
         </mat-list-item>
