@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Project } from '@workshop/core-data';
 
 @Component({
   selector: 'app-projects-list',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./projects-list.component.css']
 })
 export class ProjectsListComponent implements OnInit {
-
+  @Input() projects: Project[];
+  @Input() readOnly = false;
   constructor() { }
 
   ngOnInit(): void {
