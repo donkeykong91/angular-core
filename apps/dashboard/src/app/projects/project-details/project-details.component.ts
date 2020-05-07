@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Project } from '@workshop/core-data';
 
 @Component({
   selector: 'app-project-details',
@@ -6,11 +7,15 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./project-details.component.css']
 })
 export class ProjectDetailsComponent {
+  currentProject: Project;
+  originalTitle;
 
-  @Input() project;
   @Output() saved = new EventEmitter();
   @Output() cancelled = new EventEmitter();
-
-  constructor() { }
-
+  
+  @Input() set project(value) {
+    if(value) this.originalTitle = value.title;
+    this.currentProject = Object.assign({}, value);
+  };
+  
 }
